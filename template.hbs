@@ -1,0 +1,39 @@
+<style>
+.bk-dashboard-jrdownloads__cta { text-align: center; padding: 5px 0; }
+.bk-dashboard-jrdownloads__date { float: right; margin-left: 1rem; }
+.bk-dashboard-jrdownloads__image-container { width: 30%; }
+.bk-dashboard-jrdownloads__image { width: 100%; }
+.bk-dashboard-jrdownloads__item { display: flex; justify-content: space-between; }
+.bk-dashboard-jrdownloads__link { text-decoration: none; }
+.bk-dashboard-jrdownloads__text-container { width: 65%; }
+.bk-dashboard-jrdownloads__title { font-weight: bold; }
+</style>
+<div class="jr-dashboard-container">
+    {{#if items}}
+        <ul class="jr-dashboard-list">
+            {{#each items}}
+                <li class="jr-dashboard-list-item">
+                    <a class="bk-dashboard-jrdownloads__link" href="{{this.link}}" target="_blank" rel="noreferrer" title="{{ ../linkTitle }}">
+                        <div class="bk-dashboard-jrdownloads__item">
+                            <div class="bk-dashboard-jrdownloads__image-container">
+                                {{#if this.image }}
+                                    <img class="bk-dashboard-jrdownloads__image" src="{{ this.image.src }}" alt="{{ this.image.alt }}"><br>
+                                {{/if}}
+                            </div>
+                            <div class="bk-dashboard-jrdownloads__text-container">
+                                <div class="bk-dashboard-jrdownloads__date">{{this.pubDate}}</div>
+                                <div class="bk-dashboard-jrdownloads__title">{{this.title}}</div>
+                                {{this.description}}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+            <li class="jr-dashboard-item bk-dashboard-jrdownloads__cta">
+                <a class="jr-btn jr-btn-success" href="{{allDownloadsUrl}}" target="_blank" rel="noreferrer">{{allDownloadsText}}</a>
+            </li>
+        </ul>
+    {{else}}
+        <p class="jr-dashboard-empty-widget">{{noItems}}</p>
+    {{/if}}
+</div>

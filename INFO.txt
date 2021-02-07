@@ -1,0 +1,3 @@
+JobRouter® Dashboard Widget "Downloads"
+URL: https://github.com/brotkrueml/jobrouter-widget-downloads
+Version: 1.0.0-dev
